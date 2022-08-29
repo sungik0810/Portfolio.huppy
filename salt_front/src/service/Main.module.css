@@ -1,0 +1,52 @@
+.border {
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+.login_layout {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.login_layout_top {
+  height: 30%;
+}
+.login_layout_bottom {
+  height: 70%;
+}
+.login_layout_center {
+  width: 80%;
+  max-width: 768px;
+  height: 100%;
+}
+.login_logo {
+  width: 120px;
+  height: 150px;
+}
+.login_input {
+  width: 100%;
+  max-width: 292px;
+  height: 43px;
+  border: 1px solid #d1d3d4;
+}
+
+.login_btn {
+  width: 100%;
+  max-width: 292px;
+  height: 43px;
+  border: 0px;
+  border-radius: 10px;
+  font-family: "K2D";
+  font-weight: 600;
+  font-size: 24px;
+  background-color: #f9b199;
+  color: #ffffff;
+  padding-bottom: 10px;
+}
+
+.register_input {
+  border: 0;
+  height: 28px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #959899;
+  padding-bottom: 5px;
+}

@@ -1,0 +1,90 @@
+.main_service_page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+}
+
+.service_page {
+  width: 100%;
+  max-width: 768px;
+  height: 72.5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.service_page_top {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.service_page_top_item {
+  width: 45%;
+  height: 36%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.service_page_middle {
+  width: 100%;
+  height: 69%;
+  overflow-y: scroll;
+  scrollbar-width: "none";
+  position: relative;
+  border-top: 1px solid #e8e2e2;
+  border-bottom: 1px solid #e8e2e2;
+}
+
+.service_page_middle_wrap {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.service_page_middle_none {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.service_page_bottom {
+  width: 100%;
+  height: 16%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.service_page_modal_back {
+  position: fixed;
+  width: 100%;
+  max-width: 768px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.service_page_modal_front {
+  width: 90%;
+  max-width: 400px;
+  height: 90%;
+  border: 3px solid #fad8cd;
+  border-radius: 30px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -1,0 +1,15 @@
+.logoSize {
+  width: 120px;
+  height: 182px;
+}
+.topLogoSize {
+  height: 30%;
+  min-height: 258px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.bottomFormSize {
+  height: 70%;
+  min-height: 258px;
+}

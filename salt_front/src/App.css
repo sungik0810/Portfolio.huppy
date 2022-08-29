@@ -1,0 +1,48 @@
+.App {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.App::-webkit-scrollbar {
+  display: none; /* Chrome , Safari , Opera */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.no-scroll {
+  -ms-overflow-style: none; /* IE, Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.no-scroll::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.transitions-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+.center-enter {
+}
+
+.center-enter-active {
+}
+
+.center-exit {
+  opacity: 1;
+}
+
+.center-exit-active {
+  opacity: 0;
+  transition: opacity 1000ms ease-in-out;
+}
