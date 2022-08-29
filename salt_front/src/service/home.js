@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { changePeoplePhoto } from '../store/store'
 
@@ -40,9 +40,6 @@ export default function Home({ extraTime }) {
             <div className={page.service_page_middle_none}>error</div>
           )}
         </div>
-
-        {/* <ContentsImage /> */}
-        {/* <ContentsImage /> */}
       </div>
       <div className={page.service_page_bottom}>
         <Misson />

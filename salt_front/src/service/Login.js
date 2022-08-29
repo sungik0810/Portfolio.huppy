@@ -92,13 +92,14 @@ export default function Login() {
                     className={styles.login_input}
                     type="text"
                     name="id"
+                    autoComplete="username"
                     placeholder="ID"
                   />
                   <input
                     className={styles.login_input}
                     type="password"
                     name="pw"
-                    autoComplete="off"
+                    autoComplete="current-password"
                     placeholder="Password"
                   />
                 </div>

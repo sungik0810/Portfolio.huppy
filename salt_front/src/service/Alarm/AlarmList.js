@@ -1,23 +1,23 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { LOCAL_HOST } from "../../App";
+import axios from 'axios'
+import { useState } from 'react'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { LOCAL_HOST } from '../../App'
 
 export default function AlarmList({ totalAlarm, alarmList, setAlarmList }) {
   const state = useSelector((state) => {
-    return state;
-  });
-  const navigate = useNavigate();
-  const [isPostingComment, setPostingComment] = useState(false);
+    return state
+  })
+  const navigate = useNavigate()
+  const [isPostingComment, setPostingComment] = useState(false)
   function deleteLikeAlarm() {
     if (isPostingComment) {
-      console.warn("already posting another comment");
-      return;
+      console.warn('already posting another comment')
+      return
     }
-    setPostingComment(true);
+    setPostingComment(true)
     axios
-      .post("/alarm/like/delete", {
+      .post('/alarm/like/delete', {
         user: state.loginCheck,
         target: totalAlarm,
       })
@@ -25,20 +25,20 @@ export default function AlarmList({ totalAlarm, alarmList, setAlarmList }) {
         const total_alarmList = [
           ...result.data.like_alarm,
           ...result.data.comment_alarm,
-        ];
-        setAlarmList([...total_alarmList]);
+        ]
+        setAlarmList([...total_alarmList])
       })
       .catch((error) => {})
-      .finally(() => setPostingComment(false));
+      .finally(() => setPostingComment(false))
   }
   function deleteCommentAlarm() {
     if (isPostingComment) {
-      console.warn("already posting another comment");
-      return;
+      console.warn('already posting another comment')
+      return
     }
-    setPostingComment(true);
+    setPostingComment(true)
     axios
-      .post("/alarm/comment/delete", {
+      .post('/alarm/comment/delete', {
         user: state.loginCheck,
         target: totalAlarm,
       })
@@ -46,56 +46,56 @@ export default function AlarmList({ totalAlarm, alarmList, setAlarmList }) {
         const total_alarmList = [
           ...result.data.like_alarm,
           ...result.data.comment_alarm,
-        ];
-        setAlarmList([...total_alarmList]);
+        ]
+        setAlarmList([...total_alarmList])
       })
       .catch((error) => {})
-      .finally(() => setPostingComment(false));
+      .finally(() => setPostingComment(false))
   }
 
-  return totalAlarm.label == "like" ? (
+  return totalAlarm.label == 'like' ? (
     <div
       style={{
-        display: "flex",
-        width: "100%",
-        height: "10%",
-        background: "blue",
+        display: 'flex',
+        width: '100%',
+        height: '10%',
+        background: 'blue',
       }}
     >
       <div
         style={{
-          width: "30%",
-          height: "100%",
-          overflow: "hidden",
-          display: "flex",
-          justifyContent: "center",
+          width: '30%',
+          height: '100%',
+          overflow: 'hidden',
+          display: 'flex',
+          justifyContent: 'center',
         }}
       >
         <div
           style={{
-            overflow: "hidden",
-            maxWidth: "60px",
-            height: "60px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            background: "grey",
-            borderRadius: "50%",
+            overflow: 'hidden',
+            maxWidth: '60px',
+            height: '60px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            background: 'grey',
+            borderRadius: '50%',
           }}
         >
           <div
             style={{
-              width: "100%",
-              height: "100%",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              borderRadius: "50%",
-              background: "red",
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              borderRadius: '50%',
+              background: 'red',
             }}
           >
             <img
-              style={{ height: "100%" }}
+              style={{ height: '100%' }}
               src={`${LOCAL_HOST}/profile/${totalAlarm.user_profile}`}
             />
           </div>
@@ -103,23 +103,23 @@ export default function AlarmList({ totalAlarm, alarmList, setAlarmList }) {
       </div>
       <div
         style={{
-          width: "50%",
-          height: "100%",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+          width: '50%',
+          height: '100%',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
         }}
       >
         {totalAlarm.user_nickName}님이 좋아요를 누르셨습니다.
       </div>
       <div
         style={{
-          width: "20%",
-          height: "100%",
-          background: "red",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+          width: '20%',
+          height: '100%',
+          background: 'red',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
         }}
         onClick={deleteLikeAlarm}
       >
@@ -127,49 +127,49 @@ export default function AlarmList({ totalAlarm, alarmList, setAlarmList }) {
       </div>
     </div>
   ) : (
-    totalAlarm.label == "comment" && (
+    totalAlarm.label == 'comment' && (
       <div
         style={{
-          display: "flex",
-          width: "100%",
-          height: "10%",
-          background: "green",
+          display: 'flex',
+          width: '100%',
+          height: '10%',
+          background: 'green',
         }}
       >
         <div
           style={{
-            width: "30%",
-            height: "100%",
-            overflow: "hidden",
-            display: "flex",
-            justifyContent: "center",
+            width: '30%',
+            height: '100%',
+            overflow: 'hidden',
+            display: 'flex',
+            justifyContent: 'center',
           }}
         >
           <div
             style={{
-              overflow: "hidden",
-              maxWidth: "60px",
-              height: "60px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              background: "grey",
-              borderRadius: "50%",
+              overflow: 'hidden',
+              maxWidth: '60px',
+              height: '60px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              background: 'grey',
+              borderRadius: '50%',
             }}
           >
             <div
               style={{
-                width: "100%",
-                height: "100%",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                borderRadius: "50%",
-                background: "red",
+                width: '100%',
+                height: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderRadius: '50%',
+                background: 'red',
               }}
             >
               <img
-                style={{ height: "100%" }}
+                style={{ height: '100%' }}
                 src={`${LOCAL_HOST}/profile/${totalAlarm.user_profile}`}
               />
             </div>
@@ -177,23 +177,23 @@ export default function AlarmList({ totalAlarm, alarmList, setAlarmList }) {
         </div>
         <div
           style={{
-            width: "50%",
-            height: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
+            width: '50%',
+            height: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
         >
           {totalAlarm.user_nickName}님이 댓글을 남기셨습니다.
         </div>
         <div
           style={{
-            width: "20%",
-            height: "100%",
-            background: "red",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
+            width: '20%',
+            height: '100%',
+            background: 'red',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
           onClick={deleteCommentAlarm}
         >
@@ -201,5 +201,5 @@ export default function AlarmList({ totalAlarm, alarmList, setAlarmList }) {
         </div>
       </div>
     )
-  );
+  )
 }
