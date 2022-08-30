@@ -21,6 +21,7 @@
 .login_logo {
   width: 120px;
   height: 150px;
+  object-fit: contain;
 }
 .login_input {
   width: 100%;
@@ -34,13 +35,9 @@
   max-width: 292px;
   height: 43px;
   border: 0px;
-  border-radius: 10px;
-  font-family: "K2D";
-  font-weight: 600;
-  font-size: 24px;
-  background-color: #f9b199;
-  color: #ffffff;
-  padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .register_input {

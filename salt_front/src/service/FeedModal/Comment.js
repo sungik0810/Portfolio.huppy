@@ -1,14 +1,14 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-
+import { useNavigate } from 'react-router-dom'
 import UserComment from './UserComment'
 
 export default function Comment() {
   const state = useSelector((state) => {
     return state
   })
-
+  const navigate = useNavigate()
   const [commentList, setCommentList] = useState([])
   const [isPostingComment, setPostingComment] = useState(false)
 
@@ -46,29 +46,53 @@ export default function Comment() {
     <div
       style={{
         width: '100%',
-        paddingTop: '6px',
-        paddingBottom: '6px',
+        height: '100%',
         display: 'flex',
-        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
       }}
     >
-      <form onSubmit={postComment} style={{ display: 'flex' }}>
-        <input
-          type="text"
-          name="comment_id"
-          placeholder="댓글을 입력해주세요"
-          style={{ width: '90%', height: '2rem' }}
-        ></input>
-        <button type="submit" style={{ width: '10%', height: '2rem' }}>
-          엔터
-        </button>
-      </form>
-
-      {commentList.length > 0
-        ? commentList.map((comment) => {
-            return <UserComment comment={comment} key={comment.comment_id} />
-          })
-        : null}
+      <div
+        onClick={() => {
+          navigate('/content/comment')
+        }}
+        style={{
+          width: '88%',
+          height: '100%',
+          display: 'flex',
+          justifyContent: 'flex-start',
+          alignItems: 'center',
+        }}
+      >
+        댓글 {state.photoClick.data.comment.length}개 모두 보기
+      </div>
     </div>
+    // <div
+    //   style={{
+    //     width: '100%',
+    //     paddingTop: '6px',
+    //     paddingBottom: '6px',
+    //     display: 'flex',
+    //     flexDirection: 'column',
+    //   }}
+    // >
+    //   <form onSubmit={postComment} style={{ display: 'flex' }}>
+    //     <input
+    //       type="text"
+    //       name="comment_id"
+    //       placeholder="댓글을 입력해주세요"
+    //       style={{ width: '90%', height: '2rem' }}
+    //     ></input>
+    //     <button type="submit" style={{ width: '10%', height: '2rem' }}>
+    //       엔터
+    //     </button>
+    //   </form>
+
+    //   {commentList.length > 0
+    //     ? commentList.map((comment) => {
+    //         return <UserComment comment={comment} key={comment.comment_id} />
+    //       })
+    //     : null}
+    // </div>
   )
 }

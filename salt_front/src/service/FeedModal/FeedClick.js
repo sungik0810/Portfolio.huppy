@@ -5,12 +5,15 @@ import FeedImage from './FeedImage'
 import FeedProfile from './FeedProfile'
 import Like from './Like'
 import page from '../Page.module.css'
+import { useNavigate } from 'react-router-dom'
 export default function FeedClick() {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   return (
     <div
       onClick={() => {
         dispatch(offPhotoClick())
+        navigate('/home')
       }}
       className={page.service_page_modal_back}
     >
@@ -30,7 +33,7 @@ export default function FeedClick() {
         <div
           style={{
             width: '100%',
-            paddingTop: '3%',
+            height: '10%',
             display: 'flex',
             flexDirection: 'column',
             // background: 'red',

@@ -137,6 +137,8 @@ export default function ImageCrop() {
       navigate('/home')
     }
   }
+  const [select, setSelect] = useState('img/button/inputchoice.png')
+  const [upload, setUpload] = useState('img/button/inputend.png')
   return state.uploadSwitch == true ? (
     <div
       style={{
@@ -163,15 +165,62 @@ export default function ImageCrop() {
           style={{
             position: 'absolute',
             width: '100%',
-            height: '8%',
+            height: '10%',
             background: 'white',
             top: '0',
           }}
           onClick={() => {
             dispatch(offUploadSwitch())
+            navigate('/home')
           }}
         >
-          닫기
+          <div
+            style={{
+              width: '100%',
+              height: '100%',
+
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}
+          >
+            {/* <div>포토</div> */}
+            <div
+              style={{
+                width: '50%',
+                height: '80%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <div
+                style={{
+                  // width: '60%',
+                  height: '100%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                <img
+                  src="/img/title/photo-page-title.png"
+                  style={{ height: '100%' }}
+                />
+              </div>
+            </div>
+            {/* <div>취소</div> */}
+            <div
+              style={{
+                width: '30%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <img src="/img/button/cancle.png" style={{ width: '40%' }} />
+            </div>
+          </div>
         </div>
         <div
           style={{
@@ -282,10 +331,17 @@ export default function ImageCrop() {
             }}
           >
             <div
+              onTouchStart={() => {
+                console.log('t')
+                setSelect('img/button/inputchoice-1.png')
+              }}
+              onTouchEnd={() => {
+                setSelect('img/button/inputchoice.png')
+              }}
               style={{
                 width: '30%',
                 height: '50%',
-                background: 'grey',
+                // background: 'grey',
                 // overflow: 'hidden',
                 position: 'relative',
                 opacity: '1',
@@ -303,7 +359,7 @@ export default function ImageCrop() {
                   alignItems: 'center',
                 }}
               >
-                사진올리기
+                <img src={select} style={{ height: '100%' }} />
               </div>
               <input
                 style={{
@@ -320,6 +376,52 @@ export default function ImageCrop() {
               />
             </div>
             <div
+              onTouchStart={() => {
+                setUpload('img/button/inputend-1.png')
+              }}
+              onTouchEnd={() => {
+                setUpload('img/button/inputend.png')
+              }}
+              style={{
+                width: '30%',
+                height: '50%',
+                // background: 'grey',
+                // overflow: 'hidden',
+                position: 'relative',
+                opacity: '1',
+                borderRadius: '30px',
+                display: 'flex',
+              }}
+            >
+              <div
+                style={{
+                  position: 'absolute',
+                  width: '100%',
+                  height: '100%',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+              >
+                <img src={upload} style={{ height: '100%' }} />
+              </div>
+              <input
+                disabled={!completedCrop?.width || !completedCrop?.height}
+                onClick={getGenerateDownload}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  opacity: '0',
+                  background: 'red',
+                  position: 'absolute',
+                }}
+                type="submit"
+                name="myImg"
+                accept="image/*"
+                onChange={onSelectFile}
+              />
+            </div>
+            {/* <div
               style={{
                 width: '30%',
                 height: '50%',
@@ -344,9 +446,14 @@ export default function ImageCrop() {
                   borderRadius: '30px',
                 }}
               >
-                Upload
+                <img
+                  onTouchStart={() => {}}
+                  onTouchEnd={() => {}}
+                  src="img/button/inputchoice.png"
+                  style={{ height: '100%' }}
+                />
               </button>
-            </div>
+            </div> */}
           </form>
         </div>
       </div>

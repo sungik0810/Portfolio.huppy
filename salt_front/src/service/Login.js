@@ -27,7 +27,7 @@ export default function Login() {
         console.log(error + 'error!')
       })
   }
-
+  const [loginBtn, setLoginBtn] = useState('img/button/inputlogin-before.png')
   return (
     <div className={page.main_service_page}>
       <div className={` ${styles.login_layout} ${styles.login_layout_top}`}>
@@ -39,7 +39,10 @@ export default function Login() {
             alignItems: 'flex-end',
           }}
         >
-          <img className={`${styles.login_logo}`} src="img/login_logo.png" />
+          <img
+            className={`${styles.login_logo}`}
+            src="img/icon/logo-icon.png"
+          />
         </div>
         <div></div>
       </div>
@@ -115,9 +118,47 @@ export default function Login() {
                   alignItems: 'center',
                 }}
               >
-                <button className={styles.login_btn} type="submit">
-                  Login
-                </button>
+                <div
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    display: 'flex',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <div
+                    className={styles.login_input}
+                    onTouchStart={() => {
+                      setLoginBtn('img/button/inputlogin.png')
+                    }}
+                    onTouchEnd={() => {
+                      setLoginBtn('img/button/inputlogin-before.png')
+                    }}
+                    style={{
+                      position: 'relative',
+                      border: '0px',
+                      boxShadow: '0px 4px 4px 0px rgba(0,0,0,0.25)',
+                    }}
+                  >
+                    <img
+                      src={loginBtn}
+                      style={{
+                        position: 'absolute',
+                        display: 'flex',
+                        width: '100%',
+                      }}
+                    />
+                    <button
+                      style={{
+                        opacity: '0',
+                        width: '100%',
+                        height: '100%',
+                        position: 'absolute',
+                      }}
+                      type="submit"
+                    ></button>
+                  </div>
+                </div>
                 <div
                   style={{
                     borderTop: '1px solid black',
@@ -131,28 +172,6 @@ export default function Login() {
                     fontSize: '13px',
                   }}
                 >
-                  <div
-                    style={{ paddingRight: '5px' }}
-                    type="button"
-                    onClick={() => {
-                      navigate('/register')
-                    }}
-                  >
-                    아이디찾기
-                  </div>
-                  <div
-                    style={{
-                      borderLeft: '1px solid black',
-                      borderRight: '1px solid black',
-                      padding: '0px 5px',
-                    }}
-                    type="button"
-                    onClick={() => {
-                      navigate('/home')
-                    }}
-                  >
-                    비밀번호찾기
-                  </div>
                   <div
                     style={{ paddingLeft: '5px' }}
                     type="button"

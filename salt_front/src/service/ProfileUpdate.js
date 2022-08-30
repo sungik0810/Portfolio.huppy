@@ -17,30 +17,33 @@ export default function ProfileUpdate() {
     e.stopPropagation()
     e.preventDefault()
     //프로필 이미지 프론트에서 바꾸기
-    dispatch(loginProfile(`${profileImg[0].name}`))
+    if (profileImg) {
+      dispatch(loginProfile(`${profileImg[0].name}`))
 
-    const formData = new FormData()
-    formData.append('myProfile', profileImg[0])
-    formData.append('user', JSON.stringify(state.loginCheck))
+      const formData = new FormData()
+      formData.append('myProfile', profileImg[0])
+      formData.append('user', JSON.stringify(state.loginCheck))
 
-    axios
-      .post('/profile/upload', formData)
-      .then((result) => {
-        setProfileImg([])
-        localStorage.removeItem('token')
-        localStorage.setItem('token', result.data.token)
-        dispatch(loginCheckOk(result.data))
-        navigate(`/mypage/${state.loginCheck.id}`)
-      })
-      .catch((result) => {
-        console.log(result + '!!!error!!!')
-      })
+      axios
+        .post('/profile/upload', formData)
+        .then((result) => {
+          setProfileImg([])
+          localStorage.removeItem('token')
+          localStorage.setItem('token', result.data.token)
+          dispatch(loginCheckOk(result.data))
+          navigate(`/mypage/${state.loginCheck.id}`)
+        })
+        .catch((result) => {
+          console.log(result + '!!!error!!!')
+        })
+    }
   }
   const handleProfileUpload = (e) => {
     e.stopPropagation()
     e.preventDefault()
     setProfileImg(e.target.files)
   }
+  const [save, setSave] = useState('/img/button/inputsave.png')
   return (
     <form
       onClick={(e) => {
@@ -50,6 +53,10 @@ export default function ProfileUpdate() {
       onSubmit={handleProfileSubmit}
       className={page.service_page}
     >
+      {' '}
+      <div style={{ position: 'absolute', width: '100%', height: '100%' }}>
+        <img style={{ width: '8%' }} src="/img/title/top.png" />
+      </div>
       {/* 사진 */}
       <div
         className={page.service_page_bottom}
@@ -57,6 +64,7 @@ export default function ProfileUpdate() {
           height: '25.5%',
           minHeight: '158px',
           borderBottom: '1px solid #E8E2E2',
+          position: 'relative',
         }}
       >
         <div
@@ -101,10 +109,31 @@ export default function ProfileUpdate() {
               )}
             </div>
           </div>
-          <div>
-            {' '}
+          <div
+            style={{
+              position: 'absolute',
+              height: '70%',
+              display: 'flex',
+              alignItems: 'flex-end',
+              justifyContent: 'center',
+            }}
+          >
+            <div
+              style={{
+                zIndex: '-1',
+                position: 'absolute',
+                objectFit: 'contain',
+                width: '50%',
+                height: '20%',
+              }}
+            >
+              <img
+                src="/img/button/change-photo.png"
+                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+              />
+            </div>
             <input
-              style={{}}
+              style={{ width: '50%', height: '20%', opacity: '0' }}
               onClick={() => {}}
               onChange={handleProfileUpload}
               name="myProfile"
@@ -178,7 +207,8 @@ export default function ProfileUpdate() {
             alignItems: 'center',
           }}
         >
-          <input placeholder={state.loginCheck.nickName}></input>
+          {/* <input placeholder={state.loginCheck.nickName}></input> */}
+          {state.loginCheck.nickName}
         </div>
       </div>
       {/* 빈칸 */}
@@ -187,18 +217,49 @@ export default function ProfileUpdate() {
         style={{ height: '26.3%', borderBottom: '1px solid #E8E2E2' }}
       ></div>
       {/* 저장 버튼 */}
-      <div className={page.service_page_bottom} style={{ height: '31.8%' }}>
-        <button
-          type="submit"
+      <div
+        className={page.service_page_bottom}
+        style={{ height: '31.8%', position: 'relative' }}
+      >
+        <div
           style={{
+            position: 'absolute',
+            width: '100%',
+            height: '100%',
+            display: 'flex',
+            justifyContent: 'flex-end',
+            alignItems: 'flex-end',
+          }}
+        >
+          <img style={{ width: '8%' }} src="/img/title/bottom.png" />
+        </div>
+        <img
+          style={{
+            position: 'absolute',
             width: '77%',
             height: '31%',
             maxWidth: '300px',
             maxHeight: '60px',
           }}
-        >
-          저장하기
-        </button>
+          src={save}
+        />
+        <button
+          onTouchStart={() => {
+            setSave('/img/button/inputsave-1.png')
+          }}
+          onTouchEnd={() => {
+            setSave('/img/button/inputsave.png')
+          }}
+          type="submit"
+          style={{
+            opacity: '0',
+            position: 'absolute',
+            width: '77%',
+            height: '31%',
+            maxWidth: '300px',
+            maxHeight: '60px',
+          }}
+        ></button>
       </div>
     </form>
   )

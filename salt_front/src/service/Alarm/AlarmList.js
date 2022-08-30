@@ -59,7 +59,7 @@ export default function AlarmList({ totalAlarm, alarmList, setAlarmList }) {
         display: 'flex',
         width: '100%',
         height: '10%',
-        background: 'blue',
+        justifyContent: 'space-between',
       }}
     >
       <div
@@ -69,18 +69,19 @@ export default function AlarmList({ totalAlarm, alarmList, setAlarmList }) {
           overflow: 'hidden',
           display: 'flex',
           justifyContent: 'center',
+          alignItems: 'center',
         }}
       >
         <div
           style={{
             overflow: 'hidden',
-            maxWidth: '60px',
+            width: '60px',
             height: '60px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            background: 'grey',
-            borderRadius: '50%',
+
+            borderRadius: '60px',
           }}
         >
           <div
@@ -90,12 +91,11 @@ export default function AlarmList({ totalAlarm, alarmList, setAlarmList }) {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              borderRadius: '50%',
-              background: 'red',
+              borderRadius: '100%',
             }}
           >
             <img
-              style={{ height: '100%' }}
+              style={{ width: '50px', height: '50px', objectFit: 'contain' }}
               src={`${LOCAL_HOST}/profile/${totalAlarm.user_profile}`}
             />
           </div>
@@ -103,28 +103,28 @@ export default function AlarmList({ totalAlarm, alarmList, setAlarmList }) {
       </div>
       <div
         style={{
-          width: '50%',
+          width: '70%',
           height: '100%',
           display: 'flex',
+          flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
         }}
       >
-        {totalAlarm.user_nickName}님이 좋아요를 누르셨습니다.
+        {' '}
+        <div style={{ width: '100%' }}>
+          <p style={{ height: '0px' }}>{totalAlarm.user_nickName}님이</p>
+          <p>좋아요를 눌렀습니다!</p>
+        </div>
       </div>
       <div
         style={{
-          width: '20%',
-          height: '100%',
+          width: '30px',
+          height: '30px',
           background: 'red',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
         }}
         onClick={deleteLikeAlarm}
-      >
-        삭제
-      </div>
+      ></div>
     </div>
   ) : (
     totalAlarm.label == 'comment' && (
@@ -133,7 +133,6 @@ export default function AlarmList({ totalAlarm, alarmList, setAlarmList }) {
           display: 'flex',
           width: '100%',
           height: '10%',
-          background: 'green',
         }}
       >
         <div
@@ -143,17 +142,18 @@ export default function AlarmList({ totalAlarm, alarmList, setAlarmList }) {
             overflow: 'hidden',
             display: 'flex',
             justifyContent: 'center',
+            alignItems: 'center',
           }}
         >
           <div
             style={{
               overflow: 'hidden',
-              maxWidth: '60px',
+              width: '60px',
               height: '60px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              background: 'grey',
+
               borderRadius: '50%',
             }}
           >
@@ -165,40 +165,40 @@ export default function AlarmList({ totalAlarm, alarmList, setAlarmList }) {
                 justifyContent: 'center',
                 alignItems: 'center',
                 borderRadius: '50%',
-                background: 'red',
               }}
             >
               <img
-                style={{ height: '100%' }}
+                style={{ width: '50px', height: '50px', objectFit: 'contain' }}
                 src={`${LOCAL_HOST}/profile/${totalAlarm.user_profile}`}
               />
             </div>
           </div>
         </div>
+
         <div
           style={{
-            width: '50%',
+            width: '70%',
             height: '100%',
             display: 'flex',
+            flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
           }}
         >
-          {totalAlarm.user_nickName}님이 댓글을 남기셨습니다.
+          {' '}
+          <div style={{ width: '100%' }}>
+            <p style={{ height: '0px' }}>{totalAlarm.user_nickName}님이</p>
+            <p>댓글을 남겼습니다!</p>
+          </div>
         </div>
         <div
           style={{
-            width: '20%',
-            height: '100%',
+            width: '30px',
+            height: '30px',
             background: 'red',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
           }}
-          onClick={deleteCommentAlarm}
-        >
-          삭제
-        </div>
+          onClick={deleteLikeAlarm}
+        ></div>
       </div>
     )
   )

@@ -26,8 +26,11 @@ function Mypage() {
   }, [])
   return (
     <div className={page.service_page}>
+      <div style={{ position: 'absolute', width: '100%', height: '100%' }}>
+        <img style={{ width: '8%' }} src="/img/title/top.png" />
+      </div>
       <div className={page.service_page_top}>
-        <div className={page.service_page_top_item}>좋아요,댓글</div>
+        <div className={page.service_page_top_item}>Hope ure Happy</div>
       </div>
       <div className={page.service_page_middle}>
         <div className={page.service_page_middle_wrap}>
@@ -45,6 +48,18 @@ function Mypage() {
       </div>
       <div className={page.service_page_bottom}>
         <Misson />
+        <div
+          style={{
+            position: 'absolute',
+            width: '100%',
+            height: '100%',
+            display: 'flex',
+            justifyContent: 'flex-end',
+            alignItems: 'flex-end',
+          }}
+        >
+          <img style={{ width: '8%' }} src="/img/title/bottom.png" />
+        </div>
       </div>
     </div>
   )

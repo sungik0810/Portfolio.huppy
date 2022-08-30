@@ -10,8 +10,8 @@ export default function FeedImage() {
       style={{
         width: '100%',
         background: 'white',
-        borderTop: '3px solid #FAD8CD',
-        borderBottom: '3px solid #FAD8CD',
+        borderTop: '3px solid #AAAAAA',
+        borderBottom: '3px solid #AAAAAA',
       }}
     >
       <div

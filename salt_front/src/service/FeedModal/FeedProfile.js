@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { LOCAL_HOST } from '../../App.js'
 
@@ -5,18 +6,28 @@ export default function FeedProfile() {
   const state = useSelector((state) => {
     return state
   })
+
   return (
-    <div style={{ display: 'flex', width: '100%' }}>
+    <div
+      style={{
+        display: 'flex',
+        width: '100%',
+        height: '15%',
+        alignItems: 'center',
+      }}
+    >
       <div
         style={{
           overflow: 'hidden',
-          width: '80px',
-          height: '80px',
+          width: '48px',
+          height: '48px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           background: 'grey',
           borderRadius: '50%',
+          marginLeft: '20px',
+          marginRight: '20px',
         }}
       >
         <div
@@ -44,7 +55,11 @@ export default function FeedProfile() {
         }}
       >
         <div>{state.photoClick.data.nickName}</div>
-        <div>{state.photoClick.data.time}</div>
+        <div>
+          {state.photoClick.data.time.split(
+            state.photoClick.data.time.substr(0, 10)
+          )}
+        </div>
       </div>
     </div>
   )

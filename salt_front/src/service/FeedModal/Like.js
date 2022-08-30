@@ -48,20 +48,52 @@ export default function Like() {
     <div
       style={{
         width: '100%',
-        height: '5%',
+        height: '10%',
         background: 'white',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-around',
+        justifyContent: 'space-between',
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'center' }}>
+      <div
+        style={{
+          width: '50%',
+          height: '100%',
+          display: 'flex',
+          justifyContent: 'space-evenly',
+        }}
+      >
         <div
-          onClick={like}
-          style={{ width: '20px', height: '20px', background: 'red' }}
-        ></div>
-        좋아요{state.photoClick.data.like.length}
+          style={{
+            height: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '1.5rem',
+          }}
+        >
+          <img
+            onClick={like}
+            src="img/button/heart.png"
+            style={{ height: '100%' }}
+          />
+          {state.photoClick.data.like.length}
+        </div>
+
+        <div
+          style={{
+            height: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '1.5rem',
+          }}
+        >
+          <img src="img/icon/comment.png" style={{ height: '100%' }} />
+          {state.photoClick.data.comment.length}
+        </div>
       </div>
+
       {state.photoClick.data.id === state.loginCheck.id && (
         <div
           onClick={() => {
@@ -84,8 +116,9 @@ export default function Like() {
           dispatch(offPhotoClick())
           navigate('/home')
         }}
+        style={{ width: '20%' }}
       >
-        닫기
+        Close
       </div>
     </div>
   )

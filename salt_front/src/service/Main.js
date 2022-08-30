@@ -12,6 +12,8 @@ import Alarm from './Alarm/Alarm'
 import ToHuppy from './ToHuppy/ToHuppy'
 import UserRemove from './User/UserRemove'
 import FeedClick from './FeedModal/FeedClick'
+
+import CommentModal from './FeedModal/CommentModal'
 function Main({ extraTime }) {
   const state = useSelector((state) => {
     return state
@@ -25,8 +27,8 @@ function Main({ extraTime }) {
       {/* 사진 업로드 */}
       {feedUploadModalSwitch === true && <FeedUploadModal />}
       {/* 이미지 클릭 */}
-      {state.photoClick.click === true && <FeedClick />}
-
+      {window.location.pathname === '/content' && <FeedClick />}
+      {window.location.pathname === '/content/comment' && <CommentModal />}
       {/* height:17.5%->13.5 */}
       <NavTop />
 
@@ -52,6 +54,8 @@ function Main({ extraTime }) {
       ) : window.location.pathname === `/user/remove` ? (
         <UserRemove />
       ) : window.location.pathname === `/content` ? (
+        <Home />
+      ) : window.location.pathname === `/content/comment` ? (
         <Home />
       ) : (
         console.log('404 error')

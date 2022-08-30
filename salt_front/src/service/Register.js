@@ -23,6 +23,7 @@ export default function Register() {
         console.log(error + 'error!')
       })
   }
+  const [loginBtn, setLoginBtn] = useState('img/button/Register-before.png')
   return (
     <div className={page.main_service_page}>
       {registerMSG === '가입성공' && (
@@ -46,15 +47,18 @@ export default function Register() {
           <div
             style={{
               width: '80%',
-              height: '10%',
-              background: 'blue',
+              height: '20%',
+              // background: 'blue',
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
               borderRadius: '20px',
             }}
           >
-            {registerMSG}
+            <img
+              src="img/icon/register-success.png"
+              style={{ height: '100%' }}
+            />
           </div>
         </div>
       )}
@@ -70,8 +74,8 @@ export default function Register() {
         >
           <img
             className={`${styles.login_logo}`}
-            src="img/login_icon.png"
-            alt="img/login_icon.png"
+            src="img/icon/logo-icon.png"
+            alt="img/icon/logo-icon.png"
           />
         </div>
         <div></div>
@@ -238,9 +242,39 @@ export default function Register() {
                 alignItems: 'center',
               }}
             >
-              <button className={styles.login_btn} type="submit">
-                회원가입
-              </button>
+              <div
+                className={styles.login_input}
+                onTouchStart={() => {
+                  setLoginBtn('img/button/Register-after.png')
+                }}
+                onTouchEnd={() => {
+                  setLoginBtn('img/button/Register-before.png')
+                }}
+                style={{
+                  position: 'relative',
+                  border: '0px',
+                  boxShadow: '0px 4px 4px 0px rgba(0,0,0,0.25)',
+                }}
+              >
+                <img
+                  src={loginBtn}
+                  type="submit"
+                  style={{
+                    position: 'absolute',
+                    display: 'flex',
+                    width: '100%',
+                  }}
+                />
+                <button
+                  style={{
+                    opacity: '0',
+                    width: '100%',
+                    height: '100%',
+                    position: 'absolute',
+                  }}
+                  type="submit"
+                ></button>
+              </div>
               <div
                 onClick={() => {
                   navigate('/login')

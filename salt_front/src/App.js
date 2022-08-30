@@ -111,7 +111,7 @@ function App() {
       const timerHours = `${23 - parseInt(getHour)}`.padStart(2, '0')
       const timerMinutes = `${59 - parseInt(getMinute)}`.padStart(2, '0')
       const timerSeconds = `${59 - parseInt(getSecond)}`.padStart(2, '0')
-      const extraTimer = `${timerHours} : ${timerMinutes} : ${timerSeconds}`
+      const extraTimer = `${timerHours}:${timerMinutes}:${timerSeconds}`
       return extraTimer
     }
     setInterval(() => {
@@ -146,6 +146,7 @@ function App() {
       <Route path="/ToHuppy" element={<Main Link={Link} />} />
       <Route path="/user/remove" element={<Main Link={Link} />} />
       <Route path="/content" element={<Main Link={Link} />} />
+      <Route path="/content/comment" element={<Main Link={Link} />} />
       <Route path="/admin" element={<AdminPage Link={Link} />} />
       <Route path="/admin/view" element={<AdminPageView Link={Link} />} />
     </Routes>

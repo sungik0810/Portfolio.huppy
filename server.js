@@ -489,6 +489,7 @@ app.post('/comment/upload', (req, res) => {
           comment_id: ObjectId(),
           user_id: req.body.id,
           user_nickName: req.body.nickName,
+          user_profile: req.body.profile,
           comment: req.body.comment,
           time: timeString,
           num: timeSort,
