@@ -1,16 +1,13 @@
-import { useSelector } from 'react-redux'
 import { LOCAL_HOST } from '../../App'
 
 export default function UserComment(comment) {
-  const state = useSelector((state) => {
-    return state
-  })
   return (
     <div
       style={{
         display: 'flex',
         width: '100%',
         height: '25%',
+        minHeight: '50px',
         alignItems: 'center',
       }}
     >
@@ -42,8 +39,6 @@ export default function UserComment(comment) {
             src={`${LOCAL_HOST}/profile/${comment.comment.user_profile}`}
             alt="#"
           />
-          {/* {console.log(comment.comment)} */}
-          {/* {console.log(state.photoClick.data)} */}
         </div>
       </div>
       <div

@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { LOCAL_HOST } from '../../App.js'
 
@@ -13,6 +12,7 @@ export default function FeedProfile() {
         display: 'flex',
         width: '100%',
         height: '15%',
+        minHeight: '100px',
         alignItems: 'center',
       }}
     >

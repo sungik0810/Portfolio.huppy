@@ -19,7 +19,7 @@ export default function Like() {
   const like = () => {
     if (state.loginCheck.id !== '') {
       if (isPostingComment) {
-        console.warn('already posting another comment')
+        // console.warn('already posting another comment')
         return
       }
       setPostingComment(true)
@@ -34,13 +34,9 @@ export default function Like() {
           dispatch(peoplePhotoLike(result.data))
           dispatch(personPhotoLike(result.data))
         })
-        .catch((error) => {
-          console.log(error)
-        })
         .finally(() => setPostingComment(false))
     } else {
-      console.log('로그인이 필요합니다')
-      navigate('/login')
+      navigate('/')
     }
   }
 

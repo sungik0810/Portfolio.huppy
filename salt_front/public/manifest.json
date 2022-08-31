@@ -1,41 +1,70 @@
 {
-  "short_name": "Huppy",
+  "background_color": "#FEFEFE",
+  "description": "Hope ure Happy",
+  "dir": "ltr",
+  "display": "fullscreen",
   "name": "Huppy",
+  "orientation": "portrait",
+  "short_name": "Huppy",
+  "start_url": "/",
+  "theme_color": "#FEFEFE",
+  "categories": [],
+  "screenshots": [],
   "icons": [
     {
-      "src": "huppy_Icon_16x16.png",
+      "src": "/huppy_Icon_16x16.png",
+      "type": "image/png",
       "sizes": "16x16",
-      "type": "image/x-icon"
+      "purpose": "any"
     },
     {
-      "src": "huppy_Icon_24x24.png",
+      "src": "/huppy_Icon_24x24.png",
+      "type": "image/png",
       "sizes": "24x24",
-      "type": "image/x-icon"
+      "purpose": "any"
     },
     {
-      "src": "huppy_Icon_32x32.png",
+      "src": "/huppy_Icon_32x32.png",
+      "type": "image/png",
       "sizes": "32x32",
-      "type": "image/x-icon"
+      "purpose": "any"
     },
     {
-      "src": "huppy_Icon_64x64.png",
+      "src": "/huppy_Icon_64x64.png",
+      "type": "image/png",
       "sizes": "64x64",
-      "type": "image/x-icon"
+      "purpose": "any"
     },
     {
-      "src": "huppy_Icon_192x192.png",
+      "src": "/huppy_Icon_152x152.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "152x152",
+      "purpose": "any"
     },
     {
-      "src": "huppy_Icon_512x512.png",
+      "src": "/huppy_Icon_167x167.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "167x167",
+      "purpose": "any"
+    },
+    {
+      "src": "/huppy_Icon_180x180.png",
+      "type": "image/png",
+      "sizes": "180x180",
+      "purpose": "any"
+    },
+    {
+      "src": "/huppy_Icon_192x192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any"
+    },
+    {
+      "src": "/huppy_Icon_512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
     }
   ],
-  "start_url": "./index.html",
-  "display": "fullscreen",
-  "orientation": "portrait",
-  "theme_color": "#fff",
-  "background_color": "#fff"
+  "shortcuts": []
 }

@@ -1,9 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { offPhotoClick } from '../../store/store'
-import Comment from './Comment'
-import FeedImage from './FeedImage'
-import FeedProfile from './FeedProfile'
-import Like from './Like'
+
 import page from '../Page.module.css'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
@@ -18,7 +15,6 @@ export default function CommentModal() {
   const navigate = useNavigate()
   const [commentList, setCommentList] = useState([])
   const [isPostingComment, setPostingComment] = useState(false)
-  const [enter, setEnter] = useState('')
   const postComment = (e) => {
     e.preventDefault()
     if (isPostingComment) {
@@ -26,7 +22,6 @@ export default function CommentModal() {
       return
     }
     setPostingComment(true)
-    console.log(state.photoClick)
     axios
       .post('/comment/upload', {
         post: state.photoClick.data,
@@ -37,9 +32,6 @@ export default function CommentModal() {
       })
       .then((result) => {
         setCommentList(result.data)
-      })
-      .catch((error) => {
-        console.log(error)
       })
       .finally(() => setPostingComment(false))
   }
@@ -138,8 +130,6 @@ export default function CommentModal() {
                     src={`${LOCAL_HOST}/profile/${state.loginCheck.profile}`}
                     alt="#"
                   />
-                  {/* {console.log(comment.comment)} */}
-                  {/* {console.log(state.photoClick.data)} */}
                 </div>
               </div>
             </div>
@@ -159,43 +149,4 @@ export default function CommentModal() {
       </div>
     </div>
   )
-}
-
-{
-  /* <div
-style={{
-  width: '100%',
-  height: '100%',
-  positon: 'absolute',
-  background: 'grey',
-}}
->
-<div
-  style={{
-    width: '100%',
-    paddingTop: '6px',
-    paddingBottom: '6px',
-    display: 'flex',
-    flexDirection: 'column',
-  }}
->
-  <form onSubmit={postComment} style={{ display: 'flex' }}>
-    <input
-      type="text"
-      name="comment_id"
-      placeholder="댓글을 입력해주세요"
-      style={{ width: '90%', height: '2rem' }}
-    ></input>
-    <button type="submit" style={{ width: '10%', height: '2rem' }}>
-      엔터
-    </button>
-  </form>
-
-  {commentList.length > 0
-    ? commentList.map((comment) => {
-        return <UserComment comment={comment} key={comment.comment_id} />
-      })
-    : null}
-</div>
-</div> */
 }

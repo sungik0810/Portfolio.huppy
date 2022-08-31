@@ -14,14 +14,10 @@ export default function Register() {
       pw: e.target[2].value,
       pwCheck: e.target[3].value,
     }
-    axios
-      .post('/registerAPI', registerData)
-      .then(function (result) {
-        setRegisterMSG(result.data.registerMSG)
-      })
-      .catch(function (error) {
-        console.log(error + 'error!')
-      })
+    axios.post('/registerAPI', registerData).then(function (result) {
+      navigate('/')
+      setRegisterMSG(result.data.registerMSG)
+    })
   }
   const [loginBtn, setLoginBtn] = useState('img/button/Register-before.png')
   return (
@@ -29,7 +25,7 @@ export default function Register() {
       {registerMSG === '가입성공' && (
         <div
           onClick={() => {
-            navigate('/login')
+            navigate('/')
             setRegisterMSG('')
           }}
           style={{
@@ -92,6 +88,8 @@ export default function Register() {
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'space-between',
+              overflow: 'scroll',
+              minHeight: '273px',
             }}
           >
             <div
@@ -101,7 +99,7 @@ export default function Register() {
                 display: 'flex',
                 flexDirection: 'column',
                 height: '81%',
-
+                minHeight: '273px',
                 justifyContent: 'center',
               }}
             >
@@ -111,6 +109,7 @@ export default function Register() {
                   flexDirection: 'column',
                   justifyContent: 'space-between',
                   minHeight: '273px',
+                  overflow: 'scroll',
                 }}
               >
                 <label
@@ -121,6 +120,8 @@ export default function Register() {
                   }}
                 >
                   <input
+                    minlength="6"
+                    maxlength="12"
                     className={styles.register_input}
                     type="text"
                     name="registerId"
@@ -150,6 +151,8 @@ export default function Register() {
                   }}
                 >
                   <input
+                    minlength="6"
+                    maxlength="12"
                     className={styles.register_input}
                     type="text"
                     name="registerNickName"
@@ -179,11 +182,12 @@ export default function Register() {
                   }}
                 >
                   <input
+                    minlength="8"
                     className={styles.register_input}
                     type="password"
                     name="registerPw"
                     autoComplete="new-password"
-                    placeholder="비밀번호를 입력해주세요"
+                    placeholder="비밀번호를 8자 이상 입력해주세요"
                   />
                   <div
                     style={{
@@ -209,6 +213,7 @@ export default function Register() {
                   }}
                 >
                   <input
+                    minlength="8"
                     className={styles.register_input}
                     type="password"
                     name="registerPwCheck"
@@ -277,7 +282,7 @@ export default function Register() {
               </div>
               <div
                 onClick={() => {
-                  navigate('/login')
+                  navigate('/')
                 }}
               >
                 뒤로가기
