@@ -1,4 +1,9 @@
+import { useSelector } from "react-redux";
+
 export default function Misson() {
+  const state = useSelector((state) => {
+    return state;
+  });
   return (
     <div
       style={{
@@ -33,7 +38,18 @@ export default function Misson() {
             alignItems: "center",
           }}
         >
-          미션 : 노을 찍기
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            {/* <div>오늘의 미션</div> */}
+            <div>
+              <h2 style={{ fontStyle: "oblique" }}>{state.todayMission}</h2>
+            </div>
+          </div>
         </div>
       </div>
     </div>
