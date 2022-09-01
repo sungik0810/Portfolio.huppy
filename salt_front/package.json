@@ -1,7 +1,7 @@
 {
   "name": "salt_front",
   "version": "0.1.0",
-  "proxy": "https://35c3-218-238-32-113.jp.ngrok.io",
+  "proxy": "https://eaf1-121-135-163-250.jp.ngrok.io",
   "private": true,
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.1.2",

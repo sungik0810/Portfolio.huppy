@@ -28,6 +28,7 @@
   max-width: 292px;
   height: 43px;
   border: 1px solid #d1d3d4;
+  z-index: 3;
 }
 
 .login_btn {
